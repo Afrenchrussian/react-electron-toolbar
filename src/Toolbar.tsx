@@ -1,7 +1,10 @@
 import * as React from 'react';
+import {ToolbarProps} from "../types/Toolbar";
+const electron = require('electron').remote;
 
-export default function Toolbar() {
+export default function Toolbar(props : ToolbarProps) {
+    console.log(electron);
     return (
-        <div>lol</div>
+        <div>lel</div>
     );
 };

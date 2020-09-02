@@ -2,8 +2,19 @@
   "name": "react-electron-toolbar",
   "author": "Kieran Lewin <kieran.lewin2000@gmail.com>",
   "main": "lib/Toolbar.js",
+  "module": "lib/Toolbar.mjs",
+  "source": "src/Toolbar.tsx",
   "version": "0.1.0",
   "license": "MIT",
+  "scripts": {
+    "build": "microbundle-crl --no-compress --format modern,cjs",
+    "start": "microbundle-crl watch --no-compress --format modern,cjs"
+  },
+  "dependencies": {
+    "electron": "10.0.0",
+    "microbundle-crl": "^0.13.11",
+    "react": "^16.13.1"
+  },
   "devDependencies": {
     "@types/react": "^16.9.49",
     "@typescript-eslint/eslint-plugin": "^4.0.1",
@@ -15,11 +26,10 @@
     "eslint-plugin-react-hooks": "^4.1.0",
     "prettier": "^2.1.1",
     "prettier-eslint": "^11.0.0",
-    "react": "^16.13.1",
     "typescript": "^4.0.2"
   },
   "peerDependencies": {
-    "react": ">=16.0.0",
-    "electron": ">=9.0.0"
+    "electron": ">=10.0.0",
+    "react": ">=16.0.0"
   }
 }
