@@ -13,8 +13,8 @@
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
     "electron": "10.0.0",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
+    "react": "link:../node_modules/react",
+    "react-dom": "link:../node_modules/react-dom",
     "react-electron-toolbar": "link:..",
     "react-scripts": "3.4.3",
     "typescript": "~3.7.2"
@@ -23,7 +23,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "electron-start": "ELECTRON_START_URL=http://localhost:3000 electron .",
-    "electron-start-win": "set MODE=DEV&& set ELECTRON_START_URL=http://localhost:3000 && electron . "
+    "electron-start-win": "set MODE=DEV&& set ELECTRON_START_URL=http://localhost:3000 && electron . ",
+    "dev": "nodemon --exec yarn electron-start",
+    "dev-win": "nodemon --exec yarn electron-start-win"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -39,5 +41,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
   }
 }

@@ -1,35 +1,43 @@
 {
   "name": "react-electron-toolbar",
   "author": "Kieran Lewin <kieran.lewin2000@gmail.com>",
-  "main": "lib/Toolbar.js",
-  "module": "lib/Toolbar.mjs",
+  "main": "dist/Toolbar.js",
+  "module": "dist/Toolbar.module.js",
   "source": "src/Toolbar.tsx",
   "version": "0.1.0",
   "license": "MIT",
   "scripts": {
-    "build": "microbundle-crl --no-compress --format modern,cjs",
-    "start": "microbundle-crl watch --no-compress --format modern,cjs"
-  },
-  "dependencies": {
-    "electron": "10.0.0",
-    "microbundle-crl": "^0.13.11",
-    "react": "^16.13.1"
+    "start": "rollup -c --watch",
+    "build": "rollup -c"
   },
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^15.0.0",
+    "@rollup/plugin-node-resolve": "^9.0.0",
     "@types/react": "^16.9.49",
     "@typescript-eslint/eslint-plugin": "^4.0.1",
     "@typescript-eslint/parser": "^4.0.1",
+    "electron": "10.0.0",
     "eslint-config-airbnb": "^18.2.0",
+    "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-jsx-a11y": "^6.3.1",
     "eslint-plugin-react": "^7.20.6",
     "eslint-plugin-react-hooks": "^4.1.0",
     "prettier": "^2.1.1",
     "prettier-eslint": "^11.0.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "rollup": "^2.26.10",
+    "rollup-plugin-peer-deps-external": "^2.2.3",
+    "rollup-plugin-postcss": "^3.1.8",
+    "rollup-plugin-typescript2": "^0.27.2",
     "typescript": "^4.0.2"
   },
   "peerDependencies": {
     "electron": ">=10.0.0",
     "react": ">=16.0.0"
-  }
+  },
+  "files": [
+    "dist"
+  ]
 }

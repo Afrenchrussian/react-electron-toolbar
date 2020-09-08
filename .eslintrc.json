@@ -1,18 +1,21 @@
 {
     "env": {
         "browser": true,
-        "es2021": true
+        "es2020": true
     },
     "extends": [
         "plugin:react/recommended",
-        "airbnb"
+        "plugin:react-hooks/recommended",
+        "airbnb",
+        "prettier/react",
+        "prettier"
     ],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
         "ecmaFeatures": {
             "jsx": true
         },
-        "ecmaVersion": 12,
+        "ecmaVersion": 2020,
         "sourceType": "module"
     },
     "plugins": [
@@ -20,5 +23,17 @@
         "@typescript-eslint"
     ],
     "rules": {
+        "indent": ["error",4],
+        "react/jsx-indent": [2, 4],
+        "import/extensions": "off",
+        "react/jsx-filename-extension": [1, {"extensions":  [".tsx"]}]
+    },
+    "settings": {
+        "import/resolver": {
+            "node": {
+                "paths": ["src"],
+                "extensions": [".js", ".jsx", ".ts", ".tsx"]
+            }
+        }
     }
 }

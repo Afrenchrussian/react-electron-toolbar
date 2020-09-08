@@ -1,5 +1,9 @@
 {
   "compilerOptions": {
+    "declaration": true,
+    "declarationDir": "dist",
+    "module": "esnext",
+    "lib": ["dom", "esnext"],
     "target": "ES6",
     "allowJs": false,
     "strict": true,

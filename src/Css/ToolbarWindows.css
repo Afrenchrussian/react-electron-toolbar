@@ -1,0 +1,20 @@
+.windows-toolbar {
+    height: 35px;
+    width: 100%;
+}
+.windows-toolbar-state-buttons {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    float: right;
+}
+.windows-window-state-button {
+    height: 100%;
+    width: 50px;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+}
+.windows-window-state-button:hover {
+    cursor: pointer;
+}

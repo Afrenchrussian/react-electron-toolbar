@@ -1,11 +1,14 @@
 const {BrowserWindow, app} = require('electron');
+const url = require('url')
+const path = require('path')
 
 app.whenReady().then(() => {
     const mainWindow = new BrowserWindow({
-        width: 500,
-        height: 500,
-        frame: false,
+        width: 1000,
+        height: 600,
+        frame: true,
         webPreferences: {
+            enableRemoteModule: true,
             nodeIntegration: true,
             worldSafeExecuteJavaScript: true
         },
