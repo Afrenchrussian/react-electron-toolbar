@@ -6,9 +6,10 @@ interface Props {
     width?: number
     hoverColor?: string
     backgroundColor?: string
+    onClick: () => void
 }
 
-export default function Button({width, icon, hoverColor, backgroundColor}: Props) {
+export default function Button({width, icon, hoverColor, backgroundColor, onClick}: Props) {
     const [hover, setHover] = useState(false);
 
     function handleMouseEnter() {
@@ -20,13 +21,17 @@ export default function Button({width, icon, hoverColor, backgroundColor}: Props
     }
 
     return (
+        // eslint-disable-next-line jsx-a11y/click-events-have-key-events
         <div
+            role="button"
+            tabIndex={0}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseExit}
             style={{
                 width,
                 backgroundColor: (hover) ? hoverColor || 'white' : backgroundColor || ''
             }}
+            onClick={() => onClick()}
             className="windows-window-state-button"
         >
             {icon}

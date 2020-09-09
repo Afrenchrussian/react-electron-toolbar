@@ -23,7 +23,7 @@
         "@typescript-eslint"
     ],
     "rules": {
-        "indent": ["error",4],
+        "indent": ["error",4,{ "SwitchCase": 1 }],
         "react/jsx-indent": [2, 4],
         "import/extensions": "off",
         "react/jsx-filename-extension": [1, {"extensions":  [".tsx"]}]

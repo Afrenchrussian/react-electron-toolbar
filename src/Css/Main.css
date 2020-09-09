@@ -1,5 +1,6 @@
-.svg-icon {
-    display: flex;
-    justify-content: center;
-    align-content: center;
+.drag {
+    -webkit-app-region: drag;
+}
+.no-drag {
+    -webkit-app-region: no-drag;
 }

@@ -1,12 +1,18 @@
 .windows-toolbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     height: 35px;
     width: 100%;
+}
+.windows-toolbar-first-section {
+    display: flex;
+    flex-direction: row;
 }
 .windows-toolbar-state-buttons {
     display: flex;
     flex-direction: row;
     height: 100%;
-    float: right;
 }
 .windows-window-state-button {
     height: 100%;
@@ -17,4 +23,54 @@
 }
 .windows-window-state-button:hover {
     cursor: pointer;
+}
+.windows-toolbar-icon {
+    height: 35px;
+    width: 45px;
+    display: grid;
+}
+.windows-toolbar-icon img {
+    height: 25px;
+    margin: auto;
+}
+/* Menu */
+.windows-toolbar-menu {
+    display: flex;
+    flex-direction: row;
+}
+.windows-toolbar-menu-tile {
+    display: grid;
+    grid-template-columns: 100%;
+    font-family: Arial, serif;
+    line-height: 35px;
+    text-transform: capitalize;
+    text-align: center;
+}
+.windows-toolbar-menu-tile-highlight {
+    grid-area: 1 / 1 / 2 / 2;
+    height: 35px;
+}
+.windows-toolbar-menu-tile-text {
+    grid-area: 1 / 1 / 2 / 2;
+    margin: 0 15px 0 15px;
+}
+.windows-toolbar-menu-tile:hover {
+    cursor: pointer;
+}
+.windows-toolbar-menu-dropdown {
+    position: absolute;
+    background-color: #3a404c;
+    padding: 10px 0px;
+    top: 35px;
+}
+.windows-toolbar-menu-dropdown-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.windows-toolbar-menu-dropdown-row div {
+    line-height: 30px;
 }
