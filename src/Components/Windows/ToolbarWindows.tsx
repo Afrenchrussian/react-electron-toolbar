@@ -10,14 +10,22 @@ import MinimizePageState from '../../Icons/MinimizePageState';
 import MaximizePageState from '../../Icons/MaximizePageState';
 import Menu, { MenuTileFormat } from './Menu/Menu';
 
+const currentWindow = window.require('electron').remote.getCurrentWindow();
+
 export interface WindowsProps {
-    layout: MenuTileFormat[];
+    isMaximized: boolean;
+    layout?: MenuTileFormat[];
     icon?: ReactElement;
     color?: string;
 }
 
-export function ToolbarWindows({ color, icon, layout }: WindowsProps) {
-    const [maximized, setMaximized] = useState(true);
+export function ToolbarWindows({
+    color,
+    icon,
+    layout,
+    isMaximized,
+}: WindowsProps) {
+    const [maximized, setMaximized] = useState(isMaximized);
 
     return (
         <div
@@ -26,25 +34,38 @@ export function ToolbarWindows({ color, icon, layout }: WindowsProps) {
         >
             <div className="windows-toolbar-first-section no-drag">
                 <div className="drag windows-toolbar-icon">{icon || <></>}</div>
-                <Menu layout={layout} />
+                {layout ? <Menu layout={layout} /> : <></>}
             </div>
             <div className="windows-toolbar-state-buttons no-drag">
-                <Button icon={<MinimizePageState />} onClick={() => {}} />
+                <Button
+                    icon={<MinimizePageState />}
+                    onClick={() => {
+                        currentWindow.minimize();
+                    }}
+                />
                 {maximized ? (
                     <Button
                         icon={<MaximizePageState />}
-                        onClick={() => setMaximized(false)}
+                        onClick={() => {
+                            setMaximized(false);
+                            currentWindow.unmaximize();
+                        }}
                     />
                 ) : (
                     <Button
                         icon={<NormalPageState />}
-                        onClick={() => setMaximized(true)}
+                        onClick={() => {
+                            setMaximized(true);
+                            currentWindow.maximize();
+                        }}
                     />
                 )}
                 <Button
                     hoverColor="#e81123"
                     icon={<ExitPageState />}
-                    onClick={() => {}}
+                    onClick={() => {
+                        currentWindow.close();
+                    }}
                 />
             </div>
         </div>

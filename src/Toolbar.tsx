@@ -6,8 +6,9 @@ import { ToolbarWindows } from './Components/Windows/ToolbarWindows';
 import './Css/Main.css';
 import { MenuTileFormat } from './Components/Windows/Menu/Menu';
 
-const electron = window.require('electron');
-const { platform } = electron.remote.process;
+const { remote } = window.require('electron');
+const { platform } = remote.process;
+const currentWindow = remote.getCurrentWindow();
 
 export type OS = 'WIN' | 'MAC' | 'LINUX';
 
@@ -35,7 +36,12 @@ export default function Toolbar({
         switch (option) {
             case 'WIN':
                 return (
-                    <ToolbarWindows layout={layout} color={color} icon={icon} />
+                    <ToolbarWindows
+                        layout={layout}
+                        color={color}
+                        icon={icon}
+                        isMaximized={currentWindow.isMaximized()}
+                    />
                 );
             case 'MAC':
                 return <div>MAC</div>;
@@ -45,7 +51,6 @@ export default function Toolbar({
                 return <div>ERROR: OS Not found</div>;
         }
     };
-
     if (forcedOS) {
         return selectedToolbar(forcedOS);
     }
